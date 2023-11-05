@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2021-2023 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using UnityEditor;
@@ -12,25 +13,32 @@ namespace CodeSmile.Editor.TestTools
 	[InitializeOnLoad] [ExcludeFromCodeCoverage]
 	public static class FasterTestRunnerExecution
 	{
-		static FasterTestRunnerExecution() => ScriptableObject.CreateInstance<TestRunnerApi>().RegisterCallbacks(new Callbacks());
+		static FasterTestRunnerExecution() =>
+			ScriptableObject.CreateInstance<TestRunnerApi>().RegisterCallbacks(new Callbacks());
 
 		[ExcludeFromCodeCoverage]
 		private sealed class Callbacks : ICallbacks
 		{
-			private const string ApplicationIdleTimeKey = "ApplicationIdleTime";
-			private const string InteractionModeKey = "InteractionMode";
+			private const String ApplicationIdleTimeKey = "ApplicationIdleTime";
+			private const String InteractionModeKey = "InteractionMode";
 
-			private int m_UserApplicationIdleTime;
-			private int m_UserInteractionMode;
+			private Int32 m_UserApplicationIdleTime;
+			private Int32 m_UserInteractionMode;
 
 			private static void UpdateInteractionModeSettings()
 			{
-				const string UpdateInteractionModeMethodName = "UpdateInteractionModeSettings";
+				const String UpdateInteractionModeMethodName = "UpdateInteractionModeSettings";
 
 				var bindingFlags = BindingFlags.Static | BindingFlags.NonPublic;
 				var type = typeof(EditorApplication);
 				var method = type.GetMethod(UpdateInteractionModeMethodName, bindingFlags);
 				method.Invoke(null, null);
+			}
+
+			private static void SetInteractionModeToNoThrottling()
+			{
+				EditorPrefs.SetInt(ApplicationIdleTimeKey, 0);
+				EditorPrefs.SetInt(InteractionModeKey, 1);
 			}
 
 			public void RunStarted(ITestAdaptor testsToRun) => SetInteractionModeToSpeedUpTestRun();
@@ -51,12 +59,6 @@ namespace CodeSmile.Editor.TestTools
 				SetInteractionModeToUserSettings();
 				UpdateInteractionModeSettings();
 				//Debug.Log("Reset Interaction Mode to user setting.");
-			}
-
-			private static void SetInteractionModeToNoThrottling()
-			{
-				EditorPrefs.SetInt(ApplicationIdleTimeKey, 0);
-				EditorPrefs.SetInt(InteractionModeKey, 1);
 			}
 
 			private void GetUserInteractionModeSettings()
