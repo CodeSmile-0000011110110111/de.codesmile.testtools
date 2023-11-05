@@ -1,6 +1,6 @@
 {
     "name": "CodeSmile.Editor.TestTools",
-    "rootNamespace": "",
+    "rootNamespace": "CodeSmile.Editor.TestTools",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
