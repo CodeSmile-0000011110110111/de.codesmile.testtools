@@ -1,5 +1,5 @@
 {
-  "name": "de.codesmile.unityeditor.testtools",
+  "name": "de.codesmile.editor.testtools",
   "displayName": "CodeSmile TestTools",
   "description": "Improvements and additions for Unity's TestTools, mainly TestRunner.",
   "version": "0.1.0",
