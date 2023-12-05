@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEditor.TestTools.TestRunner.Api;
 using UnityEngine;
 
-namespace CodeSmile.Editor.TestTools
+namespace CodeSmileEditor.TestTools
 {
 	[InitializeOnLoad] [ExcludeFromCodeCoverage]
 	public static class FasterTestRunnerExecution
