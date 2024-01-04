@@ -1,8 +1,8 @@
 {
   "name": "de.codesmile.testtools",
   "displayName": "CodeSmile TestTools",
-  "description": "Improvements and additions for Unity's TestTools, mainly TestRunner.",
-  "version": "0.1.0",
+  "description": "Improvements to Unity's TestRunner and NUnit.",
+  "version": "1.0.0",
   "unity": "2021.3",
   "unityRelease": "3f1",
   "author": {
@@ -14,7 +14,8 @@
   "documentationUrl": "https://codesmile.de",
   "licensesUrl": "https://codesmile.de",
   "dependencies": {
-    "com.unity.test-framework": "1.3.9"
+    "com.unity.test-framework": "1.4.1",
+    "de.codesmile.extensions": "1.0.0"
   },
   "relatedPackages": {}
 }

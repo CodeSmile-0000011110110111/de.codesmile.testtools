@@ -1,8 +1,10 @@
 {
     "name": "CodeSmileEditor.TestTools",
-    "rootNamespace": "CodeSmileEditor.TestTools",
+    "rootNamespace": "CodeSmileEditor",
     "references": [
-        "UnityEditor.TestRunner"
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "CodeSmile.Extensions"
     ],
     "includePlatforms": [
         "Editor"
@@ -10,9 +12,13 @@
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
-    "precompiledReferences": [],
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
     "autoReferenced": false,
-    "defineConstraints": [],
+    "defineConstraints": [
+        " UNITY_INCLUDE_TESTS"
+    ],
     "versionDefines": [],
     "noEngineReferences": false
 }
