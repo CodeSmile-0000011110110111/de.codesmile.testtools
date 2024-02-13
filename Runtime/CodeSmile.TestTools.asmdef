@@ -3,8 +3,7 @@
     "rootNamespace": "CodeSmile.TestTools",
     "references": [
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner",
-        "CodeSmile.Extensions"
+        "UnityEditor.TestRunner"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -14,9 +13,7 @@
         "nunit.framework.dll"
     ],
     "autoReferenced": false,
-    "defineConstraints": [
-        "UNITY_INCLUDE_TESTS"
-    ],
+    "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
 }

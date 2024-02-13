@@ -1,7 +1,7 @@
-﻿// Copyright (C) 2021-2023 Steffen Itterheim
+﻿/*
+// Copyright (C) 2021-2023 Steffen Itterheim
 // Refer to included LICENSE file for terms and conditions.
 
-using CodeSmile.Extensions;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using System;
@@ -105,7 +105,10 @@ namespace CodeSmile.Tests.Tools.Attributes
 				if (ShouldSkipDefaultObjects(rootGameObject))
 					continue;
 
-				rootGameObject.DestroyInAnyMode();
+				if (Application.isPlaying == false)
+					GameObject.DestroyImmediate(rootGameObject);
+				else
+					GameObject.Destroy(rootGameObject);
 			}
 
 			if (IsScenePathValid())
@@ -188,3 +191,4 @@ namespace CodeSmile.Tests.Tools.Attributes
 		}
 	}
 }
+*/
